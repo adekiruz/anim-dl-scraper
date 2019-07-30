@@ -7,12 +7,8 @@ const headless = require("./lib/headless");
 
 // clean the console
 process.stdout.write("\033c");
-(async () => {
-  const link = await getDownloadLink(
-    "https://www.samehadaku.tv/bem-episode-3/"
-  );
-})();
 
+// print figlet text
 figlet("Link Download Scraper", (err, text) => {
   if (err) {
     console.log("Something went wrong...");
