@@ -5,6 +5,8 @@
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
     "figlet": "^1.2.3",
-    "prompts": "^2.1.0"
+    "prompts": "^2.1.0",
+    "puppeteer": "^1.19.0",
+    "request": "^2.88.0"
   }
 }
