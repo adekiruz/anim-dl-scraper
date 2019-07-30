@@ -3,14 +3,10 @@ const figlet = require("figlet");
 
 const { getAnimeList, getListEpisode, getDownloadLink } = require("./helpers");
 
+const headless = require("./lib/headless");
+
 // clean the console
 process.stdout.write("\033c");
-// (async () => {
-//   const link = await getDownloadLink(
-//     "https://www.samehadaku.tv/bem-episode-3/"
-//   );
-//   console.log(link);
-// })();
 
 // print figlet text
 figlet("Link Download Scraper", (err, text) => {
@@ -93,22 +89,11 @@ figlet("Link Download Scraper", (err, text) => {
         }))
       });
 
-      // console.log(askDownloadSource);
-
       console.log("Link Download:", askDownloadSource.download_link);
 
-      // const askDownloadLink = await prompt({
-      //   type: "select",
-      //   name: "resolution",
-      //   message: "Pilih Resolusi:",
-      //   choices: downloadLinks.map(item => ({
-      //     title: item.title,
-      //     value: item.link
-      //   })),
-      //   limit: 20
-      // });
+      const fsLink = await headless(askDownloadSource.download_link, {debug: false})
+      console.log('File Share Link Download:', fsLink)
 
-      // console.log(askDownloadLink);
     } else {
       console.log("Fitur ini belum tersedia :P");
     }
